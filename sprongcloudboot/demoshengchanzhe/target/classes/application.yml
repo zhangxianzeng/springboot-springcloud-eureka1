@@ -1,0 +1,28 @@
+#端口号
+server:
+  port: 8090
+
+#数据库链接设置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm
+    username: root
+    password: zhangxian11
+  application:
+    name: user-service # 应用名称
+#整合Mybatis
+mybatis:
+  #  扫描数据持久对应的实体类 路径 Package级别
+  type-aliases-package: com.example.demoshengchanzhe.pojo
+  #  mybatis 对应的 .xml文件路径
+  mapper-locations: classpath:mapper/*.xml
+#  多层级目录  mapper-locations: classpath:mapper/**/**.xml
+eureka:
+  client:
+    service-url: # EurekaServer地址
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true # 当调用getHostname获取实例的hostname时，返回ip而不是host名称
+    ip-address: 127.0.0.1 # 指定自己的ip信息，不指定的话会自己寻找
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demoshengchanzhe.dao.UserDao">
+<select id="findAlluser" resultType="com.example.demoshengchanzhe.pojo.User">
+select * from userssm
+</select>
+    <insert id="save" parameterType="com.example.demoshengchanzhe.pojo.User"
+            useGeneratedKeys="true">
+insert into userssm (username,password) values (#{username},#{password})
+
+    </insert>
+    <select id="findAlluserbyname" resultType="com.example.demoshengchanzhe.pojo.User">
+select * from userssm where username=#{username}
+</select>
+    <delete id="delete" parameterType="string">
+        delete from userssm where username=#{username}
+
+    </delete>
+    <update id="update" parameterType="com.example.demoshengchanzhe.pojo.User">
+        update  userssm set userssm.username=#{username},userssm.password=#{password} where userssm.username=#{username}
+
+    </update>
+</mapper>
